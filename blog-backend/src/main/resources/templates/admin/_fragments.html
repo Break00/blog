@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.css}">
+    <link rel="stylesheet" href="/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="/css/me.css" th:href="@{/css/me.css}">
+</head>
+
+<body>
+<!-- 导航 -->
+<nav th:fragment="menu(index)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">管理后台</h2>
+            <a href="#" th:href="@{/admin/blogs}" class="m-item m-mobile-hidden item"
+               th:classappend="${index==1} ? 'active'"><i class="home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class="m-item m-mobile-hidden item"
+               th:classappend="${index==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="m-item m-mobile-hidden item"
+               th:classappend="${index==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <div class="right m-item m-mobile-hidden menu">
+                <ui class="ui dropdown item">
+                    <div class="text">
+                        <img src="/images/As.jpg" th:src="@{${session.user.avatar}}" style="width: 30px; height: 30px;"
+                             class="ui avatar image">
+                        <span th:text="${session.user.nickname}"> Jason Lee</span>
+                    </div>
+                    <i class="dropdown icon"> </i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </ui>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!-- 底部 -->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item"><img src="/images/wechat.jpg" th:src="@{/images/wechat.jpg}"
+                                           class="ui rounded image"
+                                           style="width: 100px"></div>
+                </div>
+            </div>
+            <div class="thirteen wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">随想录</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">应是天仙狂醉，乱把白云揉碎</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright &copy; 2020-2021 Designed By Jason Lee</p>
+    </div>
+</footer>
+
+<th:block th:fragment="script">
+    <script type="text/javascript" src="/js/jquery-1.8.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="/lib/prism/prism.js" th:href="@{/lib/prism/prism.js}"></script>
+    <script src="/lib/tocbot/tocbot.min.js" th:href="@{/lib/tocbot/tocbot.min.js}"></script>
+    <script src="/lib/qrcode/qrcode.min.js" th:href="@{/lib/qrcode/qrcode.min.js}"></script>
+    <script src="/lib/scrollTo/jquery.scrollTo.min.js"
+            th:href="@{/lib/scrollTo/jquery.scrollTo.min.js}"></script>
+    <script src="/lib/waypoints/jquery.waypoints.min.js"
+            th:href="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+    <script src="/lib/editormd/editormd.min.js" th:href="@{/lib/editormd/editormd.min.js}"></script>
+</th:block>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+插件集成：
+    1 编辑器 Markdown
+    2 内容排版 typo.css
+    3 动画 animate.css
+    4 代码高亮 prism
+    5 滚动侦测 waypoints
+    6 平滑滚动 jquery.scrollTo
+    7 目录生成 Tocbot
+    8 二维码生成 qrcode.js
